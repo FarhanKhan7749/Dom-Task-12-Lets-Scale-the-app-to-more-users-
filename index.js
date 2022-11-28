@@ -2,7 +2,7 @@ var form = document.querySelector("#my-form");
 var nameInput = document.querySelector('#name');
 var emailInput = document.querySelector('#email');
 //console.log(form);
-let userList = [];
+let userList = JSON.parse(localStorage.getItem('user')) || [];
 form.addEventListener('submit', (e) =>{;
     e.preventDefault();
     // user object 
@@ -38,6 +38,7 @@ function addListOfUsers(user) {
     // append child node in paprent element or the where you want to add the element.
     ul.append(li)
 }
+userList.forEach(addListOfUsers);
 
 
 
